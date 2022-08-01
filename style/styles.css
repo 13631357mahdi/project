@@ -1,0 +1,12 @@
+input{
+    width: 120px;
+    height: 50px;
+}
+label{
+    font-size: 50px;
+}
+button{
+    width: 60px;
+    height: 40px;
+    background-color: rgb(42, 167, 42);
+}
