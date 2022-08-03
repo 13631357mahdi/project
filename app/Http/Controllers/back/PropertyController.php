@@ -129,3 +129,4 @@ class PropertyController extends Controller
         return redirect(route('property'))->with('success', $smg);
     }
 }
+
