@@ -4,7 +4,7 @@ namespace App\Http\Controllers\front;
 
 use Illuminate\Http\Request;
 
-class propertyController extends Controller
+class PropertyController extends Controller
 {
     public function index()
     {
