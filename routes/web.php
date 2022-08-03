@@ -50,8 +50,8 @@ Route::prefix('PropertiesProperty')->group(function(){
      Route::post('update/{Property}', [backCategoriesController::class, 'update'])->name('Property.update');
      Route::get('destroy/{Property}', [backCategoriesController::class, 'destroy'])->name('Property.destroy');
 });
-Route::get('/frontCategory', [frontPropertyController::class, 'index'])->name('Category');
-Route::get('/frontProperties', [frontPropertyController::class, 'show'])->name('Property');
+Route::get('/frontCategory', [PropertyController::class, 'index'])->name('Category');
+Route::get('/frontProperties', [PropertyController::class, 'show'])->name('Property');
 
 
 
