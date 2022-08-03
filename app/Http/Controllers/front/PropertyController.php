@@ -4,7 +4,7 @@ namespace App\Http\Controllers\front;
 
 use Illuminate\Http\Request;
 
-class CategoriesController extends Controller
+class propertyController extends Controller
 {
     public function index()
     {
