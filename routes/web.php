@@ -7,7 +7,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\UsersController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\back\CategoriesController as backCategoriesController;
-use App\Http\Controllers\back\PropertiesController as backPropertiesController;
+use App\Http\Controllers\back\PropertyController as backPropertyController;
 use App\Http\Controllers\front\PropertyController;
 
 
@@ -43,12 +43,12 @@ Route::prefix('/CategoriesCategory')->group(function(){
      Route::get('destroy/{Category}', [backCategoriesController::class, 'destroy'])->name('Categories.destroy');
 });
 Route::prefix('PropertiesProperty')->group(function(){
-     Route::get('/', [backCategoriesController::class, 'index'])->name('Property');
-     Route::get('creat', [backCategoriesController::class, 'create'])->name('Property.create');
-     Route::post('store', [backCategoriesController::class, 'store'])->name('Property.store');
-     Route::get('edit/{Property}', [backCategoriesController::class, 'edit'])->name('Property.edit');
-     Route::post('update/{Property}', [backCategoriesController::class, 'update'])->name('Property.update');
-     Route::get('destroy/{Property}', [backCategoriesController::class, 'destroy'])->name('Property.destroy');
+     Route::get('/', [backPropertyController::class, 'index'])->name('Property');
+     Route::get('creat', [backPropertyController::class, 'create'])->name('Property.create');
+     Route::post('store', [backPropertyController::class, 'store'])->name('Property.store');
+     Route::get('edit/{Property}', [backPropertyController::class, 'edit'])->name('Property.edit');
+     Route::post('update/{Property}', [backPropertyController::class, 'update'])->name('Property.update');
+     Route::get('destroy/{Property}', [backPropertyController::class, 'destroy'])->name('Property.destroy');
 });
 Route::get('/frontCategory', [PropertyController::class, 'index'])->name('Category');
 Route::get('/frontProperties', [PropertyController::class, 'show'])->name('Property');
