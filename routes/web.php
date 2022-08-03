@@ -33,7 +33,7 @@ use App\Http\Controllers\back\PropertiesController as backPropertiesController;
 // Route::post('/Login', [LoginController::class, 'Login'])->name('login');
 // Route::get('/loginForm', [LoginController::class, 'showLogin'])->name('showLogin');
 
-Route::prefix('/Categories.Category')->group(function(){
+Route::prefix('/CategoriesCategory')->group(function(){
      Route::get('/', [CategoriesController::class, 'index'])->name('Categories');
      Route::get('creat', [CategoriesController::class, 'create'])->name('Categories.create');
      Route::post('store', [CategoriesController::class, 'store'])->name('Categories.store');
@@ -41,7 +41,7 @@ Route::prefix('/Categories.Category')->group(function(){
      Route::post('update/{Category}', [CategoriesController::class, 'update'])->name('Categories.update');
      Route::get('destroy/{Category}', [CategoriesController::class, 'destroy'])->name('Categories.destroy');
 });
-Route::prefix('Properties.Property')->group(function(){
+Route::prefix('PropertiesProperty')->group(function(){
      Route::get('/', [back.PropertyController::class, 'index'])->name('Property');
      Route::get('creat', [PropertyController::class, 'create'])->name('Property.create');
      Route::post('store', [PropertyController::class, 'store'])->name('Property.store');
@@ -49,8 +49,8 @@ Route::prefix('Properties.Property')->group(function(){
      Route::post('update/{Property}', [PropertyController::class, 'update'])->name('Property.update');
      Route::get('destroy/{Property}', [PropertyController::class, 'destroy'])->name('Property.destroy');
 });
-Route::get('/front.Category', [front.PropertyController::class, 'index'])->name('Category');
-Route::get('/front.Properties', [front.PropertyController::class, 'show'])->name('Property');
+Route::get('/frontCategory', [frontPropertyController::class, 'index'])->name('Category');
+Route::get('/frontProperties', [frontPropertyController::class, 'show'])->name('Property');
 
 
 
