@@ -15,3 +15,4 @@ class PropertyController extends Controller
         return view('front.Properties', compact('Property'));
     }
 }
+

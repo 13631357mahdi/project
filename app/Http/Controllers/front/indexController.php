@@ -12,4 +12,3 @@ class indexController extends Controller
         return view('frontindex');
     }
 }
-
