@@ -9,6 +9,8 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\back\CategoriesController as backCategoriesController;
 use App\Http\Controllers\back\PropertyController as backPropertyController;
 use App\Http\Controllers\front\PropertyController;
+use App\Http\Controllers\back\IndexController as backIndexController;
+use App\Http\Controllers\front\indexController as frontindexController;
 
 
 /*
@@ -33,6 +35,7 @@ use App\Http\Controllers\front\PropertyController;
 // Route::resource('/user', UsersController::class);
 // Route::post('/Login', [LoginController::class, 'Login'])->name('login');
 // Route::get('/loginForm', [LoginController::class, 'showLogin'])->name('showLogin');
+ Route::get('/', [backIndexController::class, 'index']);
 
 Route::prefix('/CategoriesCategory')->group(function(){
      Route::get('/', [backCategoriesController::class, 'index'])->name('Categories');
@@ -50,6 +53,7 @@ Route::prefix('PropertiesProperty')->group(function(){
      Route::post('update/{Property}', [backPropertyController::class, 'update'])->name('Property.update');
      Route::get('destroy/{Property}', [backPropertyController::class, 'destroy'])->name('Property.destroy');
 });
+Route::get('/', [frontindexController::class, 'index']);
 Route::get('/frontCategory', [PropertyController::class, 'index'])->name('Category');
 Route::get('/frontProperties', [PropertyController::class, 'show'])->name('Property');
 
