@@ -7,7 +7,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\UsersController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\back\CategoriesController as backCategoriesController;
-use App\Http\Controllers\back\PropertiesController as backPropertiesController;
+use App\Http\Controllers\back\PropertiesController as backCategoriesController;
 use App\Http\Controllers\front\PropertyController;
 
 
@@ -35,20 +35,20 @@ use App\Http\Controllers\front\PropertyController;
 // Route::get('/loginForm', [LoginController::class, 'showLogin'])->name('showLogin');
 
 Route::prefix('/CategoriesCategory')->group(function(){
-     Route::get('/', [CategoriesController::class, 'index'])->name('Categories');
-     Route::get('creat', [CategoriesController::class, 'create'])->name('Categories.create');
-     Route::post('store', [CategoriesController::class, 'store'])->name('Categories.store');
-     Route::get('edit/{Category}', [CategoriesController::class, 'edit'])->name('Categories.edit');
-     Route::post('update/{Category}', [CategoriesController::class, 'update'])->name('Categories.update');
-     Route::get('destroy/{Category}', [CategoriesController::class, 'destroy'])->name('Categories.destroy');
+     Route::get('/', [backCategoriesController::class, 'index'])->name('Categories');
+     Route::get('creat', [backCategoriesController::class, 'create'])->name('Categories.create');
+     Route::post('store', [backCategoriesController::class, 'store'])->name('Categories.store');
+     Route::get('edit/{Category}', [backCategoriesController::class, 'edit'])->name('Categories.edit');
+     Route::post('update/{Category}', [backCategoriesController::class, 'update'])->name('Categories.update');
+     Route::get('destroy/{Category}', [backCategoriesController::class, 'destroy'])->name('Categories.destroy');
 });
 Route::prefix('PropertiesProperty')->group(function(){
-     Route::get('/', [PropertyController::class, 'index'])->name('Property');
-     Route::get('creat', [PropertyController::class, 'create'])->name('Property.create');
-     Route::post('store', [PropertyController::class, 'store'])->name('Property.store');
-     Route::get('edit/{Property}', [PropertyController::class, 'edit'])->name('Property.edit');
-     Route::post('update/{Property}', [PropertyController::class, 'update'])->name('Property.update');
-     Route::get('destroy/{Property}', [PropertyController::class, 'destroy'])->name('Property.destroy');
+     Route::get('/', [backCategoriesController::class, 'index'])->name('Property');
+     Route::get('creat', [backCategoriesController::class, 'create'])->name('Property.create');
+     Route::post('store', [backCategoriesController::class, 'store'])->name('Property.store');
+     Route::get('edit/{Property}', [backCategoriesController::class, 'edit'])->name('Property.edit');
+     Route::post('update/{Property}', [backCategoriesController::class, 'update'])->name('Property.update');
+     Route::get('destroy/{Property}', [backCategoriesController::class, 'destroy'])->name('Property.destroy');
 });
 Route::get('/frontCategory', [frontPropertyController::class, 'index'])->name('Category');
 Route::get('/frontProperties', [frontPropertyController::class, 'show'])->name('Property');
