@@ -7,7 +7,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\UsersController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\back\CategoriesController as backCategoriesController;
-use App\Http\Controllers\back\PropertiesController as backCategoriesController;
+use App\Http\Controllers\back\PropertiesController as backPropertiesController;
 use App\Http\Controllers\front\PropertyController;
 
 
