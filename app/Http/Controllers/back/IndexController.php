@@ -1,14 +1,14 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\back;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class IndexController extends Controller
+class indexController extends Controller
 {
     //
-    public function index()
-    {
-        return view('backindex');
+    public function index(){
+        return view('back/admin/index');
     }
 }

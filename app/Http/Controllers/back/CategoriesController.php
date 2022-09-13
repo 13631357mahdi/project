@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers\back;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use app\Models\Category;
-
+use App\Models\Category;
+use Exception;
 class CategoriesController extends Controller
 {
     /**
@@ -14,8 +15,9 @@ class CategoriesController extends Controller
      */
     public function index()
     {
-        //
-        $categories= Category::orderBy('id','Desc')->paginate(10);
+        $pagetitle= 'مدیریت دسته بندی';
+        $categories= Category::orderBy('id' , 'DESC')->paginate(10);
+        return view('back.admin.Categories.Category', compact('pagetitle', 'categories'));
     }
 
     /**
@@ -25,8 +27,8 @@ class CategoriesController extends Controller
      */
     public function create()
     {
-        //
-        return view('back.Caategories.Create');
+        $pagetitle= 'ایجاد دسته بندی';
+        return view('back.admin.Categories.Create', compact('pagetitle'));
     }
 
     /**
@@ -35,22 +37,25 @@ class CategoriesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Category $category, Request $request)
     {
-        //
-        $messages =[
-            'name.required'=> 'فیلد نام را وارد نمایید',
-            'description.required'=> 'فیلد توضیحات را وارد نمایید',
+        $messages = [
+            'title.required' => 'فیلد عنوان را وارد نمایید',
+            'title.unique' => 'فیلد عنوان تکراری است  ',
+            'title.max' => 'حد اکثر 15 کاراکتر',
+            'description.required' => 'فیلد توضیحات را وارد نمایید',
         ];
-        $validatedData = $request->validate([
-            'name' => 'required',
+        $validated = $request->validate([
+            'title' => 'required|unique:Categories|max:15',
             'description' => 'required',
-        ],$messages);
-
-        $categories= new category();
-        $msg="ذخیره دسته بندی جدید با موفقیت انجام شد";
-        return redirect(route('Categories.create'))->with('warning', $msg);
-
+        ], $messages);
+        $Category= new Category([
+            'title' => $request->get('title'),
+            'description' => $request->get('description')
+        ]); 
+            $Category->save();
+        $msg= "ذخیره دسته بندی ها با موفقیت انجام شد";
+        return redirect(route('index.category'))->with('success', $msg);
     }
 
     /**
@@ -70,10 +75,10 @@ class CategoriesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Category $category)
     {
-        //
-        return view('Categories.edit', compact('Category'));
+        $pagetitle= 'ویرایش دسته بندی ها';
+        return view('back.admin.Categories.edit', compact('pagetitle', 'category'));
     }
 
     /**
@@ -83,21 +88,22 @@ class CategoriesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Category $category)
     {
         //
-        $messages =[
-            'name.required'=> 'فیلد نام را وارد نمایید',
-            'description.required'=> 'فیلد توضیحات را وارد نمایید',
+        $messages = [
+            'title.required' => 'فیلد عنوان را وارد نمایید',
+            'title.unique' => 'فیلد عنوان تکراری است  ',
+            'title.max' => 'حد اکثر 15 کاراکتر',
+            'description.required' => 'فیلد توضیحات را وارد نمایید',
         ];
-        $validatedData = $request->validate([
-            'name' => 'required',
+        $validated = $request->validate([
+            'title' => 'required|unique:Categories|max:15',
             'description' => 'required',
-        ],$messages);
-
-        $category= new category();
-        $msg="ذخیره دسته بندی جدید با موفقیت انجام شد";
-        return redirect(route('Categories.edit'))->with('warning', $msg);
+        ], $messages);
+        $category->update($request->all());
+        $msg= " ویرایش دسته بندی ها با موفقیت انجام شد";
+        return redirect(route('index.category'))->with('success', $msg);
     }
 
     /**
@@ -106,15 +112,11 @@ class CategoriesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Category $category)
     {
         //
-        try{
-            $Category->delete();
-        }catch (Exception $exception){
-            return redirect(route('Categories'))->with('warning', $exception->getcode());
-        }
-        $smg="ایتم مورد نظر حدف شد";
-        return redirect(route('Categories'))->with('success', $smg);
-    }
+        $category->delete();
+        $msg= "ایتم مورد نظر حدف گردید"; 
+        return redirect(route('index.category'))->with('success', $msg);
+    } 
 }

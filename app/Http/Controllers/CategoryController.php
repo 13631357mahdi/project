@@ -11,11 +11,13 @@ class CategoryController extends Controller
     //
     public function store(Request $request)
     {
+        dd($request->all());
+
+
         $categories = new \App\Models\category([
             'title' => $request->get('title'),
             'description' => $request->get('description'),
             'image' => $request->get('image')
-
         ]);
         $categories->save();
     }

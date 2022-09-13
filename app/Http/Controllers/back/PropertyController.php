@@ -15,8 +15,6 @@ class PropertyController extends Controller
     public function index()
     {
         //
-        $properties= Property::orderBy('id','Desc')->paginate(10);
-        return view('back.Properties.Property', compact('properties'));
     }
 
     /**
@@ -27,8 +25,6 @@ class PropertyController extends Controller
     public function create()
     {
         //
-        $Categories = Category::all()->pluck('name', 'id');
-        return view('back.Properties.Create', compact('Categories'));
     }
 
     /**
@@ -40,23 +36,6 @@ class PropertyController extends Controller
     public function store(Request $request)
     {
         //
-        $messages =[
-            'color.required'=> 'فیلد رنگ را وارد نمایید',
-            'memory.required'=> 'فیلد حافظه داخلی را وارد نمایید',
-            'model.required'=> 'فیلد مدل را وارد نمایید',
-            'brand.required'=> 'فیلد برند را وارد نمایید',
-        ];
-        $validatedData = $request->validate([
-            'color' => 'required',
-            'memory' => 'required',
-            'model' => 'required',
-            'brand' => 'required',
-        ],$messages);
-
-        $properties= new Property();
-        $property->Categories()->attach($request->Categories);
-        $msg="ذخیره ویژگی جدید با موفقیت انجام شد";
-        return redirect(route('Property.create'))->with('warning', $msg);
     }
 
     /**
@@ -79,8 +58,6 @@ class PropertyController extends Controller
     public function edit(Property $property)
     {
         //
-        $Categories = Category::all()->pluck('name', 'id');
-        return view('Property.edit', compact('Property'));
     }
 
     /**
@@ -93,22 +70,6 @@ class PropertyController extends Controller
     public function update(Request $request, Property $property)
     {
         //
-        $messages =[
-            'color.required'=> 'فیلد رنگ را وارد نمایید',
-            'memory.required'=> 'فیلد حافظه داخلی را وارد نمایید',
-            'model.required'=> 'فیلد مدل را وارد نمایید',
-            'brand.required'=> 'فیلد برند را وارد نمایید',
-        ];
-        $validatedData = $request->validate([
-            'color' => 'required',
-            'memory' => 'required',
-            'model' => 'required',
-            'brand' => 'required',
-        ],$messages);
-
-        $properties= new Property();
-        $msg="ذخیره ویژگی جدید با موفقیت انجام شد";
-        return redirect(route('Property.edit'))->with('warning', $msg);
     }
 
     /**
@@ -120,13 +81,6 @@ class PropertyController extends Controller
     public function destroy(Property $property)
     {
         //
-        try{
-            $Property->delete();
-        }catch (Exception $exception){
-            return redirect(route('Property'))->with('warning', $exception->getcode());
-        }
-        $smg="ایتم مورد نظر حدف شد";
-        return redirect(route('property'))->with('success', $smg);
     }
 }
 

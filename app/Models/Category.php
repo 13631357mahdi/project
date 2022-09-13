@@ -1,20 +1,19 @@
 <?php
 
 namespace App\Models;
-
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class category extends Model
 {
     use HasFactory;
-
-    protected $fillable = [
-        'name', 'description'
+    protected $fillable=[
+        'title','description'
     ];
-    public function Properties()
+
+    public function articles()
     {
-        return $this->blongsToMany(Property::class);
+        return $this->belongsToMany(Article::class);
     }
 }
 

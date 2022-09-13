@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5aa33c4c9c59a25291445d8226153066",
+    "content-hash": "d31f8c4015c659d0ac143e0a2787ee24",
     "packages": [
         {
             "name": "brick/math",
@@ -1265,6 +1265,67 @@
             "time": "2022-03-23T12:38:24+00:00"
         },
         {
+            "name": "laravel/ui",
+            "version": "v3.4.6",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/laravel/ui.git",
+                "reference": "65ec5c03f7fee2c8ecae785795b829a15be48c2c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/laravel/ui/zipball/65ec5c03f7fee2c8ecae785795b829a15be48c2c",
+                "reference": "65ec5c03f7fee2c8ecae785795b829a15be48c2c",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/console": "^8.42|^9.0",
+                "illuminate/filesystem": "^8.42|^9.0",
+                "illuminate/support": "^8.82|^9.0",
+                "illuminate/validation": "^8.42|^9.0",
+                "php": "^7.3|^8.0"
+            },
+            "require-dev": {
+                "orchestra/testbench": "^6.23|^7.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.x-dev"
+                },
+                "laravel": {
+                    "providers": [
+                        "Laravel\\Ui\\UiServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Laravel\\Ui\\": "src/",
+                    "Illuminate\\Foundation\\Auth\\": "auth-backend/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Taylor Otwell",
+                    "email": "taylor@laravel.com"
+                }
+            ],
+            "description": "Laravel UI utilities and presets.",
+            "keywords": [
+                "laravel",
+                "ui"
+            ],
+            "support": {
+                "source": "https://github.com/laravel/ui/tree/v3.4.6"
+            },
+            "time": "2022-05-20T13:38:08+00:00"
+        },
+        {
             "name": "league/commonmark",
             "version": "2.3.3",
             "source": {
@@ -2077,6 +2138,113 @@
                 }
             ],
             "time": "2021-12-04T23:24:31+00:00"
+        },
+        {
+            "name": "pishran/laravel-persian-string",
+            "version": "v1.6",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/pishran/laravel-persian-string.git",
+                "reference": "13fba56e4e931c8794e93f4ee30d97c8377760fc"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/pishran/laravel-persian-string/zipball/13fba56e4e931c8794e93f4ee30d97c8377760fc",
+                "reference": "13fba56e4e931c8794e93f4ee30d97c8377760fc",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "^5.6|^5.7|^5.8|^6.0|^7.0|^8.0|^9.0",
+                "php": "^7.2|^8.0",
+                "pishran/persian-string": "^1.1"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Pishran\\LaravelPersianString\\ServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Pishran\\LaravelPersianString\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Farid Aghili",
+                    "email": "farid@pishranit.ir",
+                    "homepage": "https://www.faridaghili.ir",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Convert Arabic/English/etc numbers and characters to Persian numbers and characters in Laravel models.",
+            "homepage": "https://github.com/pishran/laravel-persian-string",
+            "keywords": [
+                "laravel",
+                "persian",
+                "string"
+            ],
+            "support": {
+                "issues": "https://github.com/pishran/laravel-persian-string/issues",
+                "source": "https://github.com/pishran/laravel-persian-string/tree/v1.6"
+            },
+            "time": "2022-02-09T17:45:32+00:00"
+        },
+        {
+            "name": "pishran/persian-string",
+            "version": "v1.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/pishran/persian-string.git",
+                "reference": "02d21c24c60da4bbddcc3991ed4a611a5b923f3b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/pishran/persian-string/zipball/02d21c24c60da4bbddcc3991ed4a611a5b923f3b",
+                "reference": "02d21c24c60da4bbddcc3991ed4a611a5b923f3b",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.2|^8.0|^9.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^7.5"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Pishran\\PersianString\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Farid Aghili",
+                    "email": "farid@pishranit.ir",
+                    "homepage": "https://www.faridaghili.ir",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Convert Arabic/English/etc numbers and characters to Persian numbers and characters.",
+            "homepage": "https://github.com/pishran/persian-string",
+            "keywords": [
+                "persian",
+                "string"
+            ],
+            "support": {
+                "issues": "https://github.com/pishran/persian-string/issues",
+                "source": "https://github.com/pishran/persian-string/tree/v1.2"
+            },
+            "time": "2022-02-09T17:45:49+00:00"
         },
         {
             "name": "psr/container",
